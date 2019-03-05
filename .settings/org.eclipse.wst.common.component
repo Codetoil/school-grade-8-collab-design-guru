@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="school-grade-8-collab-design-guru">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <property name="context-root" value="school-grade-8-collab-design-guru"/>
+    </wb-module>
+</project-modules>
