@@ -1,5 +1,5 @@
 <!--I use this for multilined values!-->
-<root xmlns:lit="https://github.com/Littoil">
+<root xmlns:lit="https://github.com/Littoil/school-grade-8-collab-design-guru">
 	<lit:slide id="slide1" number="1">
 		<lit:data>
 			&lt;p&gt;Hello World!&lt;/p&gt;
