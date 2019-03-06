@@ -1,7 +1,9 @@
 <!--I use this for multilined values!-->
 <root xmlns:lit="https://github.com/Littoil">
 	<lit:slide id="slide1" number="1">
-		<lit:data>&lt;p&gt;Hello World!&lt;/p&gt;</lit:data>
+		<lit:data>
+			&lt;p&gt;Hello World!&lt;/p&gt;
+		</lit:data>
 	</lit:slide>
 	<lit:slide id="slide2" number="2">
 		<lit:data>
