@@ -2,39 +2,81 @@
  * 
  */
 
-function loadSlidedata(callback) {   
+var slidedata;
+var slideNo = 1;
+var slideCount = 1;
 
-    var xobj = new XMLHttpRequest();
-        xobj.overrideMimeType("application/json");
-    xobj.open('GET', 'js/slidedata.json', true);
-    xobj.onreadystatechange = function () {
-          if (xobj.readyState == 4 && xobj.status == "200") {
-            // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-            callback(xobj.responseText);
-          }
-    };
-    xobj.send(null);  
- }
+function Prev() {
+	if (slideNo > 1)
+	{
+		slideNo--;
+		UpdateSlideData();
+	}
+}
 
-function initialize() {
-	var sidedata;
+function Next() {
+	if (slideNo < slideCount)
+	{
+		slideNo++;
+		UpdateSlideData();
+	}
+}
+
+function postInit() {
+	//No reason for this to exist
+	console.log("Finished PostInitialization Stage!");
+}
+
+function init(data) {
+	slidedata = data;
+	slideCount = slidedata.getElementsByTagName("lit:slide").length;
+	UpdateSlideData();
+	console.log("Finished Initialization Stage!");
+	console.log("Starting PostInitialization Stage!");
+	postInit();
+}
+
+function UpdateSlideData()
+{
+	var data;
+	data = slidedata.getElementById("slide" + slideNo).getElementsByTagName("lit:data")[0].textContent;
+	document.getElementById("main").innerHTML = data;
+	if (slideNo === 1)
+	{
+		document.getElementById("prev").disabled = true;
+	} else {
+		document.getElementById("prev").disabled = false;
+	}
+	if (slideNo === slideCount)
+	{
+		document.getElementById("next").disabled = true;
+	} else {
+		document.getElementById("next").disabled = false;
+	}
+	document.getElementById("mid").disabled = true;
+}
+
+function preInit() {
 	try {
-		loadSlidedata(function(response) {
-			  // Parse JSON string into object
-			  slidedata = JSON.parse(response);
-		 });
-		console.log("Recived Slide Data!");
+		var request = new XMLHttpRequest();
+		request.open('GET', "xml/slidedata.xml");
+		request.send();
+		request.onload = function() {
+			var datatxt = request.response;
+			parser = new DOMParser();
+			var data = parser.parseFromString(datatxt,"text/xml");
+			console.log("Recived Slide Data!");
+			console.log("Finished PreInitialization Stage!")
+			console.log("Entering Initialization Stage!")
+			init(data);
+		}
 	}catch(e){
 		console.log("Failed to Initialize because:");
 		console.log(e);
 		return;
 	}
-	initialized = true;
 }
 
-var initialized = false;
-initialize();
-
-if (!initialized) {
-	document.write("Document failed to initialize! :P<br> Try reloading the page... or try changing you're browser.");
-}
+console.log("Entering Preinitialization...");
+//PreInitialization is to get the data for the slides...
+preInit();
