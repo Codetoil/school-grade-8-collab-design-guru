@@ -3,6 +3,8 @@
  */
 
 var slidedata;
+var rootslidegroup;
+var slideGroup;
 var slideNo = 1;
 var slideCount = 1;
 
@@ -27,14 +29,7 @@ function postInit() {
 	console.log("Finished PostInitialization Stage!");
 }
 
-function init(data) {
-	slidedata = data;
-	slideCount = slidedata.getElementsByTagName("lit:slide").length;
-	UpdateSlideData();
-	console.log("Finished Initialization Stage!");
-	console.log("Starting PostInitialization Stage!");
-	postInit();
-}
+
 
 function UpdateSlideData()
 {
@@ -68,13 +63,45 @@ function preInit() {
 			console.log("Recived Slide Data!");
 			console.log("Finished PreInitialization Stage!")
 			console.log("Entering Initialization Stage!")
-			init(data);
+			Init(data);
 		}
 	}catch(e){
-		console.log("Failed to Initialize because:");
-		console.log(e);
+		console.error("Failed to Initialize because:");
+		console.error(e);
 		return;
 	}
+}
+
+function Init(data) {
+	slidedata = data;
+	console.log("globalized slide data!");
+	if (slidedata.getElementsByTagName("lit:root_slide_group").length == 0)
+	{
+		console.error("No found root_slide_group! the tag name is \"lit:root_slide_group\"!");
+		return;
+	}
+	if (slidedata.getElementsByTagName("lit:root_slide_group").length > 1)
+	{
+		console.error("Too many root_slide_group(s)! Combine all the root_slide_group(s) into one!");
+		return;
+	}
+	rootslidegroup = slidedata.getElementsByTagName("lit:root_slide_group")[0];
+	console.log(rootslidegroup);
+	var children = rootslidegroup.children;
+	//slideCount = slidedata.getElementsByTagName("lit:slide").length;
+	console.log(children);
+	for (var i = 0; i < children.length; i++)
+	{
+		console.log(children[i]);
+		if (children[i].tagName === "lit:slide_group")
+		{
+			console.log(children[i]);
+		}
+	}
+	UpdateSlideData();
+	console.log("Finished Initialization Stage!");
+	console.log("Starting PostInitialization Stage!");
+	postInit();
 }
 
 console.log("Entering Preinitialization...");

@@ -1,14 +1,15 @@
 <!--I use this for multilined values!-->
 <root xmlns:lit="https://github.com/Littoil/school-grade-8-collab-design-guru">
-	<lit:slide id="slide1" number="1">
+	
+	
+	
+	<lit:root_slide_group><lit:slide_group id="testslides"><lit:slide id="testslide1">
 		<lit:data>
 			&lt;p&gt;Hello World!&lt;/p&gt;
 		</lit:data>
-	</lit:slide>
-	<lit:slide id="slide2" number="2">
+	</lit:slide><lit:slide id="testslide2">
 		<lit:data>
 			&lt;p&gt;Second Slide!&lt;/p&gt;
 			&lt;p&gt;This Too!&lt;/p&gt;
 		</lit:data>
-	</lit:slide>
-</root>
+	</lit:slide></lit:slide_group></lit:root_slide_group></root>
