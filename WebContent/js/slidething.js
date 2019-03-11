@@ -4,7 +4,7 @@
 
 var slidedata;
 var rootslidegroup;
-var slideGroup;
+var slidegroup;
 var slideNo = 1;
 var slideCount = 1;
 
@@ -34,7 +34,8 @@ function postInit() {
 function UpdateSlideData()
 {
 	var data;
-	data = slidedata.getElementById("slide" + slideNo).getElementsByTagName("lit:data")[0].textContent;
+	slideCount = slidegroup.getElementsByTagName("lit:slide").length;
+	data = slidegroup.children["slide"+slideNo].getElementsByTagName("lit:data")[0].textContent;
 	document.getElementById("main").innerHTML = data;
 	if (slideNo === 1)
 	{
@@ -88,16 +89,16 @@ function Init(data) {
 	rootslidegroup = slidedata.getElementsByTagName("lit:root_slide_group")[0];
 	console.log(rootslidegroup);
 	var children = rootslidegroup.children;
-	//slideCount = slidedata.getElementsByTagName("lit:slide").length;
+	
 	console.log(children);
 	for (var i = 0; i < children.length; i++)
 	{
-		console.log(children[i]);
 		if (children[i].tagName === "lit:slide_group")
 		{
 			console.log(children[i]);
 		}
 	}
+	slidegroup = slidedata.getElementsByTagName("lit:root_slide_group")[0].children["init"];
 	UpdateSlideData();
 	console.log("Finished Initialization Stage!");
 	console.log("Starting PostInitialization Stage!");
