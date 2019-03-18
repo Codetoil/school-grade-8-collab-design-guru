@@ -4,7 +4,7 @@ var rootslidegroup;
 var slidegroup;
 var slideNo = 1;
 var slideCount = 1;
-var includeLit; //true: "lit:(tagname)"; false: "(tagname)"
+var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
 var initialized = false;
 
 function Prev() {
@@ -15,7 +15,7 @@ function Prev() {
 	}
 }
 
-console.log("Test if this works!");
+//console.log("Test if this works!");
 
 function Next() {
 	if (slideNo < slideCount)
