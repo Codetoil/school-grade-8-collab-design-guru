@@ -1,3 +1,4 @@
+"use strict"
 
 var slidedata;
 var rootslidegroup;
@@ -6,6 +7,7 @@ var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
 var initialized = false;
+var slidelist;
 
 function Prev() {
 	if (slideNo > 1)
@@ -34,7 +36,7 @@ function postInit() {
 
 function UpdateSlideData()
 {
-	var data;
+	let data;
 	if (includeLit)
 	{
 		slideCount = slidegroup.getElementsByTagName("lit:slide").length - 1;
@@ -45,9 +47,13 @@ function UpdateSlideData()
 		slideCount = slidegroup.getElementsByTagName("slide").length - 1;
 		data = slidegroup.children["slide"+slideNo].getElementsByTagName("data")[0].textContent;
 	}
-	
-	
 	document.getElementById("main").innerHTML = data;
+	slidelist = document.getElementById("slidelist");
+	slidelist.innerHTML = "";
+	for (var i = 0; i < rootslidegroup.children.length; i++)
+	{
+		addTextToList(rootslidegroup.children[i].id);
+	}
 	if (slideNo === 1)
 	{
 		document.getElementById("prev").disabled = true;
@@ -63,6 +69,18 @@ function UpdateSlideData()
 	document.getElementById("mid").disabled = true;
 }
 
+function addTextToList(stringToAdd)
+{	
+	slidelist.innerHTML = slidelist.innerHTML + "<li id=\"slidelist." + stringToAdd + 	"\"onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</li>";
+}
+
+function setSlideGroup(newSlideGroup)
+{
+	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup);
+	slidegroup = rootslidegroup.children[newSlideGroup];
+	UpdateSlideData();
+}
+
 function preInit() {
 	try {
 		var request = new XMLHttpRequest();
@@ -70,7 +88,7 @@ function preInit() {
 		request.send();
 		request.onload = function() {
 			var datatxt = request.response;
-			parser = new DOMParser();
+			var parser = new DOMParser();
 			var data = parser.parseFromString(datatxt,"text/xml");
 			console.log("Recived Slide Data!");
 			console.log("Finished PreInitialization Stage!")
@@ -140,6 +158,8 @@ function Init(data) {
 	postInit();
 }
 
-console.log("Entering Preinitialization...");
-//PreInitialization is to get the data for the slides...
-preInit();
+window.onload = function() {
+	console.log("Entering Preinitialization...");
+	//PreInitialization is to get the data for the slides...
+	preInit();
+}
