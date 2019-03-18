@@ -15,6 +15,8 @@ function Prev() {
 	}
 }
 
+console.log("Test if this works!");
+
 function Next() {
 	if (slideNo < slideCount)
 	{
