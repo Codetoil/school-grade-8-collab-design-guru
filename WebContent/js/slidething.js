@@ -159,7 +159,7 @@ function Init(data) {
 }
 
 window.onload = function() {
-	console.log("Entering Preinitialization...");
+	console.log("Starting Preinitialization...");
 	//PreInitialization is to get the data for the slides...
 	preInit();
 }
