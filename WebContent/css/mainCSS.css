@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+#slidelist{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#slidelist div{
+	display: block;
+  	width: 60px;
+}
