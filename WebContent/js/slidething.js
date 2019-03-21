@@ -71,7 +71,7 @@ function UpdateSlideData()
 
 function addTextToList(stringToAdd)
 {	
-	slidelist.innerHTML = slidelist.innerHTML + "<li id=\"slidelist." + stringToAdd + 	"\"onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</li>";
+	slidelist.innerHTML = slidelist.innerHTML + "<div><li id=\"slidelist_" + stringToAdd + 	"\"onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</li></div>";
 }
 
 function setSlideGroup(newSlideGroup)
