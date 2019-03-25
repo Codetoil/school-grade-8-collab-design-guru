@@ -1,12 +1,32 @@
 @charset "ISO-8859-1";
 
-#slidelist{
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+#slidelist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-#slidelist div{
-	display: block;
-  	width: 60px;
+#slidelist > li {
+	display: inline;
+	width: 100px;
+  	background-color: yellow;
+}
+
+#slideList {
+	margin: auto;
+	width: 50%;
+  	text-align: center;
+}
+
+#mainDiv {
+	width: 50%;
+	height: 500px;
+	margin: auto;
+  	text-align: center;
+}
+
+#buttons {
+	margin: auto;
+	width: 50%;
+  	text-align: center;
 }

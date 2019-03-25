@@ -70,14 +70,16 @@ function UpdateSlideData()
 }
 
 function addTextToList(stringToAdd)
-{	
-	slidelist.innerHTML = slidelist.innerHTML + "<div><li id=\"slidelist_" + stringToAdd + 	"\"onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</li></div>";
+{
+	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + 	"\" onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</button></li>  ";
 }
 
 function setSlideGroup(newSlideGroup)
 {
 	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup);
+	slidegroup.disabled = false;
 	slidegroup = rootslidegroup.children[newSlideGroup];
+	slidegroup.disabled = true;
 	UpdateSlideData();
 }
 

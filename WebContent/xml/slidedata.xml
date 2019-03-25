@@ -5,31 +5,21 @@
 	
 	
 	<lit:root_slide_group><lit:slide_group id="testslides"><lit:slide id="slide1">
-		<lit:data>
-			&lt;p&gt;Hello World!&lt;/p&gt;
-		</lit:data>
+		<lit:data>Hello World!</lit:data>
 	</lit:slide><lit:slide id="slide2">
-		<lit:data>
-			&lt;p&gt;Second Slide!&lt;/p&gt;
-			&lt;p&gt;This Too!&lt;/p&gt;
-		</lit:data>
+		<lit:data>Second Slide!&lt;br&gt;This Too!</lit:data>
 	</lit:slide>
 	
 	<lit:slide id="group">
-		<lit:data>
-			&lt;p&gt;This is slidegroup of test slides.&lt;/p&gt;
-		</lit:data>
+		<lit:data>This is slidegroup of test slides.</lit:data>
 	</lit:slide></lit:slide_group>
 		<lit:slide_group id="init">
 			<lit:slide id="slide1">
-				<lit:data>&lt;p&gt;This is the first slide of the presentation!&lt;br&gt;I think this is pretty cool!&lt;/p&gt;</lit:data></lit:slide>
+				<lit:data>This is the first slide of the presentation!&lt;br&gt;I think this is pretty cool!</lit:data></lit:slide>
 			<lit:slide id="slide2">
 				<lit:data>&lt;a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"&gt;CLICK ME&lt;/a&gt;</lit:data>
 			</lit:slide>
 			
 			<lit:slide id="group">
-				<lit:data>
-					&lt;p&gt;This is the slidegroup the nonlinear
-					presentation the slideshow starts on!&lt;/p&gt;
-				</lit:data>
+				<lit:data>This is the slidegroup the nonlinear presentation the slideshow starts on!</lit:data>
 			</lit:slide></lit:slide_group></lit:root_slide_group></root>
