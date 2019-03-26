@@ -12,10 +12,24 @@
   	background-color: yellow;
 }
 
+#main {
+	font-size: 200%;
+}
+
 #slideList {
 	margin: auto;
 	width: 50%;
   	text-align: center;
+}
+
+.slidelistbutton {
+  	display: inline-block;
+	font-size: 200%;
+}
+
+.moverbutton {
+	display: inline-block;
+	font-size: 200%;
 }
 
 #mainDiv {

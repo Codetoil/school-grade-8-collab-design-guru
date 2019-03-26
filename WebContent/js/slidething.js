@@ -3,7 +3,7 @@
 var slidedata;
 var rootslidegroup;
 var slidegroup;
-var slidegroupelem;
+var slidegroupelem; // the html button that starts this slide group
 var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
@@ -26,6 +26,15 @@ function Next() {
 		slideNo++;
 		UpdateSlideData();
 	}
+}
+
+function Home() {
+	setSlideNumber(1);
+}
+
+function setSlideNumber(newNumber)
+{
+	slideNo = newNumber;
 }
 
 function postInit() {
@@ -61,28 +70,22 @@ function UpdateSlideData()
 	} else {
 		document.getElementById("next").disabled = false;
 	}
-	document.getElementById("mid").disabled = true;
-	
-}
-
-function hoverIn(slideGroup)
-{
-	
-}
-
-function hoverOut(slideGroup)
-{
 	
 }
 
 function addTextToList(stringToAdd)
 {
-	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + 	"\" onclick=\"setSlideGroup(this)\" onmouseover=\"hoverIn(this)\" onmouseout=\"hoverOut(this)\">" + stringToAdd + "</button></li>  ";
+	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + "\" class=\"slidelistbutton\" onclick=\"setSlideGroup('" + stringToAdd + "')\">" + stringToAdd + "</button></li>                     ";
 	
 }
-
-function setSlideGroup(newSlideGroup)
+/**
+ * 
+ * @param newSlideGroupName Name of the slide group to set to
+ * @returns
+ */
+function setSlideGroup(newSlideGroupName)
 {
+	let newSlideGroup = document.getElementById("slidelist_" + newSlideGroupName);
 	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup.innerHTML);
 	if (slidegroupelem == null) {} else
 	{
@@ -100,7 +103,19 @@ function setSlideGroup(newSlideGroup)
 	
 	//slidegroup.disabled = true;
 	UpdateSlideData();
-	
+	setSlideNumber(1);
+}
+
+/**
+ * 
+ * @param newSlideGroupName slide group to set to
+ * @param slideTo what slide group to set this to
+ * @returns
+ */
+function goto(newSlideGroupName, slideTo)
+{
+	setSlideGroup(newSlideGroupName);
+	setSlideNumber(slideTo);
 }
 
 function preInit() {
@@ -173,10 +188,9 @@ function Init(data) {
 	for (var i = 0; i < rootslidegroup.children.length; i++)
 	{
 		addTextToList(rootslidegroup.children[i].id);
-		
 	}
 	
-	setSlideGroup(document.getElementById("slidelist_init"));
+	setSlideGroup("init");
 	
 	console.log("Finished Initialization Stage!");
 	console.log("Starting PostInitialization Stage!");
