@@ -35,6 +35,7 @@ function Home() {
 function setSlideNumber(newNumber)
 {
 	slideNo = newNumber;
+	UpdateSlideData();
 }
 
 function postInit() {
@@ -75,7 +76,7 @@ function UpdateSlideData()
 
 function addTextToList(stringToAdd)
 {
-	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + "\" class=\"slidelistbutton\" onclick=\"setSlideGroup('" + stringToAdd + "')\">" + stringToAdd + "</button></li>                     ";
+	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + "\" class=\"slidelistbutton\" onclick=\"setSlideGroup('" + stringToAdd + "')\">" + stringToAdd + "</button></li>";
 	
 }
 /**
