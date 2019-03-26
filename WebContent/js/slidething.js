@@ -3,7 +3,7 @@
 var slidedata;
 var rootslidegroup;
 var slidegroup;
-var slidegroupname;
+var slidegroupelem;
 var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
@@ -65,34 +65,38 @@ function UpdateSlideData()
 	
 }
 
-function addTextToList(stringToAdd)
+function hoverIn(slideGroup)
 {
-	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + 	"\" onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</button></li>  ";
 	
 }
 
-/**
- * newSlideGroup must be a string
- */
+function hoverOut(slideGroup)
+{
+	
+}
+
+function addTextToList(stringToAdd)
+{
+	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + 	"\" onclick=\"setSlideGroup(this)\" onmouseover=\"hoverIn(this)\" onmouseout=\"hoverOut(this)\">" + stringToAdd + "</button></li>  ";
+	
+}
+
 function setSlideGroup(newSlideGroup)
 {
-	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup);
-	let buttonOld = document.getElementById("slidelist_" + slidegroupname);
-	//console.log(buttonOld);
-	if (buttonOld == null) {} else
+	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup.innerHTML);
+	if (slidegroupelem == null) {} else
 	{
-		buttonOld.disabled = false;
-		
+		slidegroupelem.disabled = false;
 	}
 	
 	//slidegroup.disabled = false;
-	slidegroup = rootslidegroup.children[newSlideGroup];
-	slidegroupname = newSlideGroup;
-	let buttonNew = document.getElementById("slidelist_" + slidegroupname);
+	slidegroup = rootslidegroup.children[newSlideGroup.innerHTML];
+	slidegroupelem = newSlideGroup;
+	slidegroupelem.disabled = true;
 	
 	//console.log(buttonNew);
 	
-	buttonNew.disabled = true;
+	slidegroupelem.disabled = true;
 	
 	//slidegroup.disabled = true;
 	UpdateSlideData();
@@ -172,7 +176,7 @@ function Init(data) {
 		
 	}
 	
-	setSlideGroup("init");
+	setSlideGroup(document.getElementById("slidelist_init"));
 	
 	console.log("Finished Initialization Stage!");
 	console.log("Starting PostInitialization Stage!");
