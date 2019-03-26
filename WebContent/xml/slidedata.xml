@@ -22,4 +22,11 @@
 			
 			<lit:slide id="group">
 				<lit:data>This is the slidegroup the nonlinear presentation the slideshow starts on!</lit:data>
-			</lit:slide></lit:slide_group></lit:root_slide_group></root>
+			</lit:slide></lit:slide_group>
+		<lit:slide_group id="testotherslides">
+			<lit:slide id="slide1">
+				<lit:data>This is a test slide</lit:data></lit:slide>
+			<lit:slide id="slide2">
+				<lit:data>&lt;a href="https://github.com/Littoil/school-grade-8-collab-design-guru"&gt;This&lt;/a&gt; is the link to this project</lit:data></lit:slide>
+			<lit:slide id="group">
+				<lit:data>This is another slide group</lit:data></lit:slide></lit:slide_group></lit:root_slide_group></root>

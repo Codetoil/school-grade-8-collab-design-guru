@@ -3,6 +3,7 @@
 var slidedata;
 var rootslidegroup;
 var slidegroup;
+var slidegroupname;
 var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
@@ -48,12 +49,6 @@ function UpdateSlideData()
 		data = slidegroup.children["slide"+slideNo].getElementsByTagName("data")[0].textContent;
 	}
 	document.getElementById("main").innerHTML = data;
-	slidelist = document.getElementById("slidelist");
-	slidelist.innerHTML = "";
-	for (var i = 0; i < rootslidegroup.children.length; i++)
-	{
-		addTextToList(rootslidegroup.children[i].id);
-	}
 	if (slideNo === 1)
 	{
 		document.getElementById("prev").disabled = true;
@@ -67,20 +62,41 @@ function UpdateSlideData()
 		document.getElementById("next").disabled = false;
 	}
 	document.getElementById("mid").disabled = true;
+	
 }
 
 function addTextToList(stringToAdd)
 {
 	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + 	"\" onclick=\"setSlideGroup(\'" + stringToAdd + "\')\">" + stringToAdd + "</button></li>  ";
+	
 }
 
+/**
+ * newSlideGroup must be a string
+ */
 function setSlideGroup(newSlideGroup)
 {
 	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup);
-	slidegroup.disabled = false;
+	let buttonOld = document.getElementById("slidelist_" + slidegroupname);
+	//console.log(buttonOld);
+	if (buttonOld == null) {} else
+	{
+		buttonOld.disabled = false;
+		
+	}
+	
+	//slidegroup.disabled = false;
 	slidegroup = rootslidegroup.children[newSlideGroup];
-	slidegroup.disabled = true;
+	slidegroupname = newSlideGroup;
+	let buttonNew = document.getElementById("slidelist_" + slidegroupname);
+	
+	//console.log(buttonNew);
+	
+	buttonNew.disabled = true;
+	
+	//slidegroup.disabled = true;
 	UpdateSlideData();
+	
 }
 
 function preInit() {
@@ -95,6 +111,7 @@ function preInit() {
 			console.log("Recived Slide Data!");
 			console.log("Finished PreInitialization Stage!")
 			console.log("Entering Initialization Stage!")
+			
 			Init(data);
 		}
 	}catch(e){
@@ -146,15 +163,17 @@ function Init(data) {
 			console.log(children[i]);
 		}
 	}
-	if (includeLit)
+	
+	slidelist = document.getElementById("slidelist");
+	slidelist.innerHTML = "";
+	for (var i = 0; i < rootslidegroup.children.length; i++)
 	{
-		slidegroup = slidedata.getElementsByTagName("lit:root_slide_group")[0].children["init"];
+		addTextToList(rootslidegroup.children[i].id);
+		
 	}
-	else
-	{
-		slidegroup = slidedata.getElementsByTagName("root_slide_group")[0].children["init"];
-	}
-	UpdateSlideData();
+	
+	setSlideGroup("init");
+	
 	console.log("Finished Initialization Stage!");
 	console.log("Starting PostInitialization Stage!");
 	postInit();
