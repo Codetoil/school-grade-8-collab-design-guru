@@ -1,36 +1,44 @@
 <!DOCTYPE xml>
 <!--I use this for multilined values!-->
 <root xmlns:lit="https://github.com/Littoil/school-grade-8-collab-design-guru">
-	
-	
-	
-	<lit:root_slide_group><lit:slide_group id="init">
+	<lit:root_slide_group>
+		<lit:slide_group id="init">
 			<lit:slide id="slide1">
-				<lit:data>This is the first slide of the presentation!&lt;br&gt;I think this is pretty cool!</lit:data></lit:slide>
+				<lit:data>This is the first slide of the presentation!&lt;br&gt;I think this is pretty cool!</lit:data>
+			</lit:slide>
 			<lit:slide id="slide2">
 				<lit:data>&lt;a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"&gt;CLICK ME&lt;/a&gt;</lit:data>
 			</lit:slide>
-			
 			<lit:slide id="slide0">
 				<lit:data>This is the slidegroup the nonlinear presentation the slideshow starts on!</lit:data>
 			</lit:slide>
 			<lit:slide id="slide3">
-				<lit:data>&lt;script&gt;goto("testslides", 3)&lt;/script&gt;</lit:data></lit:slide></lit:slide_group><lit:slide_group id="testslides"><lit:slide id="slide0">
-		<lit:data>This is slidegroup of test slides.</lit:data><!--slide0 is the slidegroup slide.-->
-	</lit:slide><lit:slide id="slide1">
-		<lit:data>Hello World!</lit:data>
-	</lit:slide><lit:slide id="slide2">
-		<lit:data>Second Slide!&lt;br&gt;This Too!</lit:data>
-	</lit:slide>
-	
-	
-	<lit:slide id="slide3">
-		<lit:data>&lt;img src="img/Eclipse_Logo2014_New(High_Res).jpg" style="width: 50%; height: auto;"&gt;&lt;/img&gt;</lit:data></lit:slide></lit:slide_group>
-		
+				<lit:data>&lt;script&gt;goto("testslides", 3)&lt;/script&gt;</lit:data>
+			</lit:slide>
+		</lit:slide_group>
+		<lit:slide_group id="testslides">
+			<lit:slide id="slide0">
+				<lit:data>This is slidegroup of test slides.</lit:data><!--slide0 is the slidegroup slide.-->
+			</lit:slide>
+			<lit:slide id="slide1">
+				<lit:data>Hello World!</lit:data>
+			</lit:slide>
+			<lit:slide id="slide2">
+				<lit:data>Second Slide!&lt;br&gt;This Too!</lit:data>
+			</lit:slide>
+			<lit:slide id="slide3">
+				<lit:data>&lt;img src="img/Eclipse_Logo2014_New(High_Res).jpg" style="width: 50%; height: auto;"&gt;&lt;/img&gt;</lit:data>
+			</lit:slide>
+		</lit:slide_group>
 		<lit:slide_group id="testotherslides">
 			<lit:slide id="slide1">
-				<lit:data>This is a test slide</lit:data></lit:slide>
+				<lit:data>This is a test slide</lit:data>
+			</lit:slide>
 			<lit:slide id="slide2">
-				<lit:data>&lt;a href="https://github.com/Littoil/school-grade-8-collab-design-guru"&gt;This&lt;/a&gt; is the link to this project</lit:data></lit:slide>
+				<lit:data>&lt;a href="https://github.com/Littoil/school-grade-8-collab-design-guru"&gt;This&lt;/a&gt; is the link to this project</lit:data>
+			</lit:slide>
 			<lit:slide id="slide0">
-				<lit:data>This is another slide group</lit:data></lit:slide></lit:slide_group></lit:root_slide_group></root>
+				<lit:data>This is another slide group</lit:data></lit:slide>
+		</lit:slide_group>
+	</lit:root_slide_group>
+</root>
