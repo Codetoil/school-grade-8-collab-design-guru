@@ -10,6 +10,33 @@ var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
 var initialized = false;
 var slidelist;
 
+function OnButtonPress(buttonNumber){
+	switch (buttonNumber)
+	{
+	case 0:
+		goto("init", 1);
+		break;
+	case 1:
+		goto("init", 2);
+		break;
+	case 2:
+		switch (slidegroupbutton.innerHTML)
+		{
+		case "init":
+			goto("testslides", slideNo);
+			break;
+		case "testslides":
+			goto("testotherslides", slideNo);
+			break;
+		case "testotherslides":
+			goto("testslides", slideNo);
+			break;
+		}
+		break;
+	}
+}
+
+//button #0
 function Prev() {
 	if (slideNo > 1)
 	{
@@ -20,6 +47,7 @@ function Prev() {
 
 //console.log("Test if this works!");
 
+//button #2
 function Next() {
 	if (slideNo < slideCount)
 	{
@@ -28,8 +56,13 @@ function Next() {
 	}
 }
 
+//button #1
 function Home() {
-	setSlideNumber(1);
+	if (slideNo != 1)
+	{
+		
+	}
+	goto("init", 2);
 }
 
 function setSlideNumber(newNumber)
@@ -60,7 +93,7 @@ function UpdateSlideData()
 		data = slidegroup.children["slide"+slideNo].getElementsByTagName("data")[0].textContent;
 	}
 	document.getElementById("main").innerHTML = data;
-	if (slideNo === 1)
+	/*if (slideNo === 1)
 	{
 		document.getElementById("prev").disabled = true;
 	} else {
@@ -71,7 +104,7 @@ function UpdateSlideData()
 		document.getElementById("next").disabled = true;
 	} else {
 		document.getElementById("next").disabled = false;
-	}
+	}*/
 	
 }
 
