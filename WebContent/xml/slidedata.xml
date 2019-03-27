@@ -15,7 +15,7 @@
 				<lit:data>This is the slidegroup the nonlinear presentation the slideshow starts on!</lit:data>
 			</lit:slide>
 			<lit:slide id="slide3">
-				<lit:data>&lt;script&gt;goto(testslides, 3)&lt;/script&gt;</lit:data></lit:slide></lit:slide_group><lit:slide_group id="testslides"><lit:slide id="slide0">
+				<lit:data>&lt;script&gt;goto("testslides", 3)&lt;/script&gt;</lit:data></lit:slide></lit:slide_group><lit:slide_group id="testslides"><lit:slide id="slide0">
 		<lit:data>This is slidegroup of test slides.</lit:data><!--slide0 is the slidegroup slide.-->
 	</lit:slide><lit:slide id="slide1">
 		<lit:data>Hello World!</lit:data>
