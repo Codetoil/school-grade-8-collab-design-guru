@@ -3,7 +3,7 @@
 var slidedata;
 var rootslidegroup;
 var slidegroup;
-var slidegroupelem; // the html button that starts this slide group
+var slidegroupbutton; // the html button that starts this slide group
 var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
@@ -48,6 +48,7 @@ function postInit() {
 function UpdateSlideData()
 {
 	let data;
+	document.getElementById("slideNumber").innerHTML = slidegroupbutton.innerHTML + " > Slide #" + slideNo;
 	if (includeLit)
 	{
 		slideCount = slidegroup.getElementsByTagName("lit:slide").length - 1;
@@ -88,23 +89,23 @@ function setSlideGroup(newSlideGroupName)
 {
 	let newSlideGroup = document.getElementById("slidelist_" + newSlideGroupName);
 	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup.innerHTML);
-	if (slidegroupelem == null) {} else
+	if (slidegroupbutton == null) {} else
 	{
-		slidegroupelem.disabled = false;
+		slidegroupbutton.disabled = false;
 	}
 	
 	//slidegroup.disabled = false;
 	slidegroup = rootslidegroup.children[newSlideGroup.innerHTML];
-	slidegroupelem = newSlideGroup;
-	slidegroupelem.disabled = true;
+	slidegroupbutton = newSlideGroup;
+	slidegroupbutton.disabled = true;
 	
 	//console.log(buttonNew);
 	
-	slidegroupelem.disabled = true;
+	slidegroupbutton.disabled = true;
 	
 	//slidegroup.disabled = true;
-	UpdateSlideData();
 	setSlideNumber(1);
+	UpdateSlideData();
 }
 
 /**
