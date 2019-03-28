@@ -4,6 +4,7 @@ var slidedata;
 var rootslidegroup;
 var slidegroup;
 var slidegroupbutton; // the html button that starts this slide group
+var slidename;
 var slideNo = 1;
 var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
@@ -65,13 +66,13 @@ function Home() {
 	goto("init", 2);
 }
 
-function setSlideNumber(newNumber)
+function setSlideName(slidename)
 {
-	slideNo = newNumber;
 	UpdateSlideData();
 }
 
 function postInit() {
+	console.log("Starting PostInitialization Stage!");
 	initialized = true;
 	console.log("Finished PostInitialization Stage!");
 }
@@ -137,8 +138,7 @@ function setSlideGroup(newSlideGroupName)
 	slidegroupbutton.disabled = true;
 	
 	//slidegroup.disabled = true;
-	setSlideNumber(1);
-	UpdateSlideData();
+	setSlideName("home");
 }
 
 /**
@@ -153,8 +153,9 @@ function goto(newSlideGroupName, slideTo)
 	setSlideNumber(slideTo);
 }
 
-function preInit() {
+function getXMLDoc() {
 	try {
+		console.log("Starting Preinitialization...");
 		var request = new XMLHttpRequest();
 		request.open('GET', "xml/slidedata.xml");
 		request.send();
@@ -163,8 +164,7 @@ function preInit() {
 			var parser = new DOMParser();
 			var data = parser.parseFromString(datatxt,"text/xml");
 			console.log("Recived Slide Data!");
-			console.log("Finished PreInitialization Stage!")
-			console.log("Entering Initialization Stage!")
+			console.log("Finished PreInitialization Stage!");
 			
 			Init(data);
 		}
@@ -176,6 +176,7 @@ function preInit() {
 }
 
 function Init(data) {
+	console.log("Starting Initialization Stage!");
 	slidedata = data;
 	console.log("globalized slide data!");
 	if (slidedata.getElementsByTagName("lit:root_slide_group").length > 0)
@@ -212,7 +213,7 @@ function Init(data) {
 	console.log(children);
 	for (var i = 0; i < children.length; i++)
 	{
-		if ((children[i].tagName === "lit:slide_group") || (children[i].tagName === "slide_group"))
+		if ((children[i].tagName === "lit:slide_group") || (children[i].tagName === "slide_group") || (children[i].tagName === "lit:slide") || (children[i].tagName === "slide"))
 		{
 			console.log(children[i]);
 		}
@@ -225,15 +226,13 @@ function Init(data) {
 		addTextToList(rootslidegroup.children[i].id);
 	}
 	
-	setSlideGroup("init");
+	setSlideGroup("home");
 	
 	console.log("Finished Initialization Stage!");
-	console.log("Starting PostInitialization Stage!");
 	postInit();
 }
 
 window.onload = function() {
-	console.log("Starting Preinitialization...");
 	//PreInitialization is to get the data for the slides...
-	preInit();
+	getXMLDoc();
 }

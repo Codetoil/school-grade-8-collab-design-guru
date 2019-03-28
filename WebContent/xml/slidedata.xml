@@ -11,17 +11,9 @@
 					<lit:button>
 						<lit:name>Topic 2</lit:name>
 						<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide>
-		<lit:slide_group id="topic 1">
+		<lit:slide id="topic 1">
 			<lit:data></lit:data>
-			<lit:slide id="buttonActions">
-				<lit:data></lit:data>
-				<lit:buttons>
-					<lit:button>
-						<lit:name>go back to topic 1 screen</lit:name>
-						<lit:goto>topic1</lit:goto></lit:button>
-					<lit:button>
-						<lit:name>go back to home screen</lit:name>
-						<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide>
+			
 			<lit:buttons>
 				<lit:button>
 					<lit:name>Home</lit:name>
@@ -31,10 +23,25 @@
 					<lit:goto>buttonAction</lit:goto></lit:button>
 				<lit:button>
 					<lit:name>go to topic 2</lit:name>
-					<lit:goto>topic2</lit:goto></lit:button></lit:buttons></lit:slide_group>
-		<lit:slide_group id="topic 2">
+					<lit:goto>topic2</lit:goto></lit:button></lit:buttons></lit:slide>
+		<lit:slide id="buttonActions">
+				<lit:data></lit:data>
+				<lit:buttons>
+					<lit:button>
+						<lit:name>go back to topic 1 screen</lit:name>
+						<lit:goto>topic1</lit:goto></lit:button>
+					<lit:button>
+						<lit:name>go back to home screen</lit:name>
+						<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide><lit:slide id="topic 2">
 			<lit:data></lit:data>
-			<lit:slide id="settingButtonColors">
+			
+			<lit:buttons>
+				<lit:button>
+					<lit:name>setting a button color</lit:name>
+					<lit:goto>buttonColor</lit:goto></lit:button>
+				<lit:button>
+					<lit:name>Home</lit:name>
+					<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide><lit:slide id="settingButtonColors">
 				<lit:data></lit:data>
 				<lit:buttons>
 					<lit:button>
@@ -45,12 +52,5 @@
 						<lit:goto>buttonAction</lit:goto></lit:button>
 					<lit:button>
 						<lit:name>Back to Topic 2</lit:name>
-						<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide>
-			<lit:buttons>
-				<lit:button>
-					<lit:name>setting a button color</lit:name>
-					<lit:goto>buttonColor</lit:goto></lit:button>
-				<lit:button>
-					<lit:name>Home</lit:name>
-					<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide_group></lit:root_slide_group>
+						<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide></lit:root_slide_group>
 </root>
