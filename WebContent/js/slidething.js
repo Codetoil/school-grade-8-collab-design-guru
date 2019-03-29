@@ -2,11 +2,8 @@
 
 var slidedata;
 var rootslidegroup;
-var slidegroup;
-var slidegroupbutton; // the html button that starts this slide group
+var slide;
 var slidename;
-var slideNo = 1;
-var slideCount = 1;
 var includeLit; // true: "lit:(tagname)"; false: "(tagname)"
 var initialized = false;
 var slidelist;
@@ -15,59 +12,19 @@ function OnButtonPress(buttonNumber){
 	switch (buttonNumber)
 	{
 	case 0:
-		goto("init", 1);
+		slide;
 		break;
 	case 1:
-		goto("init", 2);
 		break;
 	case 2:
-		switch (slidegroupbutton.innerHTML)
-		{
-		case "init":
-			goto("testslides", slideNo);
-			break;
-		case "testslides":
-			goto("testotherslides", slideNo);
-			break;
-		case "testotherslides":
-			goto("testslides", slideNo);
-			break;
-		}
 		break;
 	}
 }
 
-//button #0
-function Prev() {
-	if (slideNo > 1)
-	{
-		slideNo--;
-		UpdateSlideData();
-	}
-}
-
-//console.log("Test if this works!");
-
-//button #2
-function Next() {
-	if (slideNo < slideCount)
-	{
-		slideNo++;
-		UpdateSlideData();
-	}
-}
-
-//button #1
-function Home() {
-	if (slideNo != 1)
-	{
-		
-	}
-	goto("init", 2);
-}
-
-function setSlideName(slidename)
+function setSlideName(newslidename)
 {
+	slidename = newslidename;
+	slide = rootslidegroup.children[slidename];
 	UpdateSlideData();
 }
 
@@ -82,30 +39,16 @@ function postInit() {
 function UpdateSlideData()
 {
 	let data;
-	document.getElementById("slideNumber").innerHTML = slidegroupbutton.innerHTML + " > Slide #" + slideNo;
+	document.getElementById("slideNumber").innerHTML = "Slide \"" + slideNo + "\"";
 	if (includeLit)
 	{
-		slideCount = slidegroup.getElementsByTagName("lit:slide").length - 1;
-		data = slidegroup.children["slide"+slideNo].getElementsByTagName("lit:data")[0].textContent;
+		data = rootslidegroup.children[slidename].getElementsByTagName("lit:data")[0].textContent;
 	}
 	else
 	{
-		slideCount = slidegroup.getElementsByTagName("slide").length - 1;
-		data = slidegroup.children["slide"+slideNo].getElementsByTagName("data")[0].textContent;
+		data = rootslidegroup.children[slidename].getElementsByTagName("data")[0].textContent;
 	}
 	document.getElementById("main").innerHTML = data;
-	/*if (slideNo === 1)
-	{
-		document.getElementById("prev").disabled = true;
-	} else {
-		document.getElementById("prev").disabled = false;
-	}
-	if (slideNo === slideCount)
-	{
-		document.getElementById("next").disabled = true;
-	} else {
-		document.getElementById("next").disabled = false;
-	}*/
 	
 }
 
@@ -114,13 +57,16 @@ function addTextToList(stringToAdd)
 	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + "\" class=\"slidelistbutton\" onclick=\"setSlideGroup('" + stringToAdd + "')\">" + stringToAdd + "</button></li>";
 	
 }
+
 /**
  * 
  * @param newSlideGroupName Name of the slide group to set to
  * @returns
+ * @deprecated
  */
 function setSlideGroup(newSlideGroupName)
 {
+	console.warn("This function is deprecated and does not work. Slidegroups are removed.");
 	let newSlideGroup = document.getElementById("slidelist_" + newSlideGroupName);
 	console.log("SETTING SLIDE GROUP TO: " + newSlideGroup.innerHTML);
 	if (slidegroupbutton == null) {} else
@@ -144,13 +90,13 @@ function setSlideGroup(newSlideGroupName)
 /**
  * 
  * @param newSlideGroupName slide group to set to
- * @param slideTo what slide group to set this to
+ * @param slideTo what slide
  * @returns
  */
-function goto(newSlideGroupName, slideTo)
+function goto(slideTo)
 {
-	setSlideGroup(newSlideGroupName);
-	setSlideNumber(slideTo);
+	//setSlideGroup(newSlideGroupName);
+	setSlideName(slideTo);
 }
 
 function getXMLDoc() {
@@ -213,20 +159,21 @@ function Init(data) {
 	console.log(children);
 	for (var i = 0; i < children.length; i++)
 	{
-		if ((children[i].tagName === "lit:slide_group") || (children[i].tagName === "slide_group") || (children[i].tagName === "lit:slide") || (children[i].tagName === "slide"))
+		if ((children[i].tagName === "lit:slide") || (children[i].tagName === "slide"))
 		{
 			console.log(children[i]);
 		}
 	}
 	
-	slidelist = document.getElementById("slidelist");
+	/*slidelist = document.getElementById("slidelist");
 	slidelist.innerHTML = "";
 	for (var i = 0; i < rootslidegroup.children.length; i++)
 	{
 		addTextToList(rootslidegroup.children[i].id);
-	}
+	}*/
 	
-	setSlideGroup("home");
+	//setSlideGroup("home");
+	goto("home");
 	
 	console.log("Finished Initialization Stage!");
 	postInit();
