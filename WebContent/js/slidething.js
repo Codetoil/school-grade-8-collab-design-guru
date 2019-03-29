@@ -39,7 +39,6 @@ function postInit() {
 function UpdateSlideData()
 {
 	let data;
-	document.getElementById("slideNumber").innerHTML = "Slide \"" + slideNo + "\"";
 	if (includeLit)
 	{
 		data = rootslidegroup.children[slidename].getElementsByTagName("lit:data")[0].textContent;
@@ -49,13 +48,30 @@ function UpdateSlideData()
 		data = rootslidegroup.children[slidename].getElementsByTagName("data")[0].textContent;
 	}
 	document.getElementById("main").innerHTML = data;
-	
+	if (includeLit)
+	{
+		var buttons = Array.from(slide.getElementsByTagName("lit:button"));
+		//buttons.innerHTML = "";
+		document.getElementById("movementbuttonlist").innerHTML = "";
+		Array.from(buttons).forEach(function(button){
+			addTextToList(button.getElementsByTagName("lit:name")[0].textContent, button.getElementsByTagName("lit:goto")[0].textContent, document.getElementById("movementbuttonlist"));
+		});
+	}
+	else
+	{
+		var buttons = Array.from(slide.getElementsByTagName("button"));
+		//buttons.innerHTML = "";
+		document.getElementById("movementbuttonlist").innerHTML = "";
+		Array.from(buttons).forEach(function(button){
+			addTextToList(button.getElementsByTagName("name")[0].textContent, button.getElementsByTagName("goto")[0].textContent, document.getElementById("movementbuttonlist"));
+		});
+	}
+	document.getElementById("slideNumber").innerHTML = "Slide \"" + slidename + "\"";
 }
 
-function addTextToList(stringToAdd)
+function addTextToList(disp, goto, buttons)
 {
-	slidelist.innerHTML = slidelist.innerHTML + "<li><button id=\"slidelist_" + stringToAdd + "\" class=\"slidelistbutton\" onclick=\"setSlideGroup('" + stringToAdd + "')\">" + stringToAdd + "</button></li>";
-	
+	buttons.innerHTML = buttons.innerHTML + "<li><button id=\"moverbutton_" + goto + "\" class=\"moverbutton\" onclick=\"goto('" + goto + "')\">" + disp + "</button></li>";
 }
 
 /**
@@ -89,7 +105,6 @@ function setSlideGroup(newSlideGroupName)
 
 /**
  * 
- * @param newSlideGroupName slide group to set to
  * @param slideTo what slide
  * @returns
  */
