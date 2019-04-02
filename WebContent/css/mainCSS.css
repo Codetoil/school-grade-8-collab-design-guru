@@ -35,25 +35,6 @@
 	font-size: 300%;
 }
 
-#slideList {
-	margin: auto;
-	width: 50%;
-  	text-align: center;
-}
-
-.slidelistbutton {
-  	display: inline-block;
-	font-size: 200%;
-	padding: 5% 3%;
-  	float: left;
-  	margin: auto;
-  	/*border: 1px solid green;*/
-  	border: none;
-  	background-color: #f1ff30;
-  	border-top: 10px solid white;
-  	border-right: 1px solid black;
-}
-
 .moverbutton {
 	display: inline-block;
 	font-size: 200%;

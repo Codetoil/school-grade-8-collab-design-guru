@@ -68,11 +68,23 @@ function UpdateSlideData()
 	}
 	if (includeLit)
 	{
-		document.getElementById("main").style.color = slide.getElementsByTagName("lit:color")[0].textContent;
+		var color = slide.getElementsByTagName("lit:color")[0].textContent;
+		document.getElementById("main").style.color = color;
+		for (var button of document.getElementsByClassName("moverbutton")) {
+			//console.log(button);
+			button.style.backgroundColor = color;
+			button.style.color = tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
+		}
 	}
 	else
 	{
-		document.getElementById("main").style.color = slide.getElementsByTagName("color")[0].textContent;
+		var color = slide.getElementsByTagName("color")[0].textContent;
+		document.getElementById("main").style.color = color;
+		for (var button of document.getElementsByClassName("moverbutton")) {
+			//console.log(button);
+			button.style.backgroundColor = color;
+			button.style.color = tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
+		}
 	}
 	document.getElementById("slideNumber").innerHTML = "Slide \"" + slidename + "\"";
 }
@@ -201,6 +213,8 @@ function Init(data) {
 	console.log("Finished Initialization Stage!");
 	postInit();
 }
+
+
 
 window.onload = function() {
 	//PreInitialization is to get the data for the slides...
