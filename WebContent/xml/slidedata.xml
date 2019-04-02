@@ -3,7 +3,9 @@
 <root xmlns:lit="https://github.com/Littoil/school-grade-8-collab-design-guru">
 	<lit:root_slide_group>
 		<lit:slide id="home">
-				<lit:data>Anthony's&lt;br&gt;Presentation&lt;br&gt;&lt;br&gt;</lit:data>
+				<lit:data>
+					Anthony's&lt;br&gt;Presentation&lt;br&gt;&lt;br&gt;
+					<lit:color>#ffffff</lit:color></lit:data>
 				<lit:buttons>
 					<lit:button>
 						<lit:name>Topic 1</lit:name>
