@@ -3,19 +3,25 @@
 <root xmlns:lit="https://github.com/Littoil/school-grade-8-collab-design-guru">
 	<lit:root_slide_group>
 		<lit:slide id="home">
-				<lit:data>
-					Anthony's&lt;br&gt;Presentation&lt;br&gt;&lt;br&gt;
-					<lit:color>#ffffff</lit:color></lit:data>
-				<lit:buttons>
-					<lit:button>
-						<lit:name>Topic 1</lit:name>
-						<lit:goto>topic 1</lit:goto></lit:button>
-					<lit:button>
-						<lit:name>Topic 2</lit:name>
-						<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide>
+			<lit:data>
+				Anthony's&lt;br&gt;Presentation&lt;br&gt;&lt;br&gt;
+			</lit:data>
+			<lit:color>#000000</lit:color>
+			<lit:buttons>
+				<lit:button>
+					<lit:name>Topic 1</lit:name>
+					<lit:goto>topic 1</lit:goto></lit:button>
+				<lit:button>
+					<lit:name>Topic 2</lit:name>
+					<lit:goto>topic 2</lit:goto>
+				</lit:button>
+			</lit:buttons>
+		</lit:slide>
 		<lit:slide id="topic 1">
-			<lit:data>Topic 1:</lit:data>
-			
+			<lit:data>
+				Topic 1:
+			</lit:data>
+			<lit:color>#00ff00</lit:color>
 			<lit:buttons>
 				<lit:button>
 					<lit:name>Home</lit:name>
@@ -25,34 +31,60 @@
 					<lit:goto>buttonActions</lit:goto></lit:button>
 				<lit:button>
 					<lit:name>go to topic 2</lit:name>
-					<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide>
+					<lit:goto>topic 2</lit:goto>
+				</lit:button>
+			</lit:buttons>
+		</lit:slide>
 		<lit:slide id="buttonActions">
-				<lit:data>Actions of Buttons:</lit:data>
-				<lit:buttons>
-					<lit:button>
-						<lit:name>go back to topic 1 screen</lit:name>
-						<lit:goto>topic 1</lit:goto></lit:button>
-					<lit:button>
-						<lit:name>go back to home screen</lit:name>
-						<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide><lit:slide id="topic 2">
-			<lit:data>Topic 2:</lit:data>
-			
+			<lit:data>
+				Actions of Buttons:
+			</lit:data>
+			<lit:color>#0000ff</lit:color>
+			<lit:buttons>
+				<lit:button>
+					<lit:name>go back to topic 1 screen</lit:name>
+					<lit:goto>topic 1</lit:goto>
+				</lit:button>
+				<lit:button>
+					<lit:name>go back to home screen</lit:name>
+					<lit:goto>home</lit:goto>
+				</lit:button>
+			</lit:buttons>
+		</lit:slide>
+		<lit:slide id="topic 2">
+			<lit:data>
+				Topic 2:
+			</lit:data>
+			<lit:color>#ff0000</lit:color>
 			<lit:buttons>
 				<lit:button>
 					<lit:name>setting a button color</lit:name>
-					<lit:goto>settingButtonColors</lit:goto></lit:button>
+					<lit:goto>settingButtonColors</lit:goto>
+				</lit:button>
 				<lit:button>
 					<lit:name>Home</lit:name>
-					<lit:goto>home</lit:goto></lit:button></lit:buttons></lit:slide><lit:slide id="settingButtonColors">
-				<lit:data>Setting Button Colors:</lit:data>
-				<lit:buttons>
-					<lit:button>
-						<lit:name>Home</lit:name>
-						<lit:goto>home</lit:goto></lit:button>
-					<lit:button>
-						<lit:name>Back to button Actions</lit:name>
-						<lit:goto>buttonActions</lit:goto></lit:button>
-					<lit:button>
-						<lit:name>Back to Topic 2</lit:name>
-						<lit:goto>topic 2</lit:goto></lit:button></lit:buttons></lit:slide></lit:root_slide_group>
+					<lit:goto>home</lit:goto>
+				</lit:button>
+			</lit:buttons>
+		</lit:slide>
+		<lit:slide id="settingButtonColors">
+			<lit:data>
+				Setting Button Colors:
+			</lit:data>
+			<lit:color>#ff00ff</lit:color>
+			<lit:buttons>
+				<lit:button>
+					<lit:name>Home</lit:name>
+					<lit:goto>home</lit:goto>
+				</lit:button>
+				<lit:button>
+					<lit:name>Back to button Actions</lit:name>
+					<lit:goto>buttonActions</lit:goto></lit:button>
+				<lit:button>
+					<lit:name>Back to Topic 2</lit:name>
+					<lit:goto>topic 2</lit:goto>
+				</lit:button>
+			</lit:buttons>
+		</lit:slide>
+	</lit:root_slide_group>
 </root>

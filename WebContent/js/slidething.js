@@ -66,6 +66,14 @@ function UpdateSlideData()
 			addTextToList(button.getElementsByTagName("name")[0].textContent, button.getElementsByTagName("goto")[0].textContent, document.getElementById("movementbuttonlist"));
 		});
 	}
+	if (includeLit)
+	{
+		document.getElementById("main").style.color = slide.getElementsByTagName("lit:color")[0].textContent;
+	}
+	else
+	{
+		document.getElementById("main").style.color = slide.getElementsByTagName("color")[0].textContent;
+	}
 	document.getElementById("slideNumber").innerHTML = "Slide \"" + slidename + "\"";
 }
 
