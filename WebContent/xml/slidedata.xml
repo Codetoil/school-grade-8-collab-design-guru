@@ -4,84 +4,112 @@
 	<lit:root_slide_group>
 		<lit:slide id="home">
 			<lit:data>
-				Anthony's&lt;br&gt;Presentation&lt;br&gt;&lt;br&gt;
+				Anthony's&lt;br&gt;Presentation
+				&lt;br&gt;
+				&lt;br&gt;
+				Making a Webpage from scratch
+				&lt;br&gt;
+				&lt;br&gt;
+				Select a Topic below:
+				&lt;img onload="document.getElementById('mainDiv').style.height = '500px';" src="img/blank.jpg"&gt;&lt;/img&gt;
 			</lit:data>
 			<lit:color>#000000</lit:color>
 			<lit:buttons>
 				<lit:button>
-					<lit:name>Topic 1</lit:name>
-					<lit:goto>topic 1</lit:goto></lit:button>
+					<lit:name>Button Actions</lit:name>
+					<lit:goto>topic 1</lit:goto>
+				</lit:button>
 				<lit:button>
-					<lit:name>Topic 2</lit:name>
+					<lit:name>Button Colors</lit:name>
 					<lit:goto>topic 2</lit:goto>
+				</lit:button>
+				<lit:button>
+					<lit:name>Languages</lit:name>
+					<lit:goto>languages</lit:goto>
 				</lit:button>
 			</lit:buttons>
 		</lit:slide>
 		<lit:slide id="topic 1">
 			<lit:data>
-				Topic 1:
+				Button Actions:
+				&lt;br&gt;
+				&lt;br&gt;
+				Clicking a button activates some javascript. Javascript can change the webpage. So buttons can change a webpage. Like this website!
+				&lt;br&gt;
+				&lt;br&gt;
+				We clicked a button to get to this page!
+				&lt;br&gt;
+				&lt;br&gt;
+				We can click the home button below to go back to the home screen!
+				&lt;img onload="document.getElementById('mainDiv').style.height = '600px';" src="img/blank.jpg"&gt;&lt;/img&gt;
 			</lit:data>
-			<lit:color>#00ff00</lit:color>
+			<lit:color>#34ad1f</lit:color>
 			<lit:buttons>
 				<lit:button>
 					<lit:name>Home</lit:name>
 					<lit:goto>home</lit:goto></lit:button>
 				<lit:button>
-					<lit:name>button actions</lit:name>
-					<lit:goto>buttonActions</lit:goto></lit:button>
-				<lit:button>
-					<lit:name>go to topic 2</lit:name>
+					<lit:name>Button Colors</lit:name>
 					<lit:goto>topic 2</lit:goto>
 				</lit:button>
-			</lit:buttons>
-		</lit:slide>
-		<lit:slide id="buttonActions">
-			<lit:data>
-				Actions of Buttons:
-			</lit:data>
-			<lit:color>#0000ff</lit:color>
-			<lit:buttons>
 				<lit:button>
-					<lit:name>go back to topic 1 screen</lit:name>
-					<lit:goto>topic 1</lit:goto>
-				</lit:button>
-				<lit:button>
-					<lit:name>go back to home screen</lit:name>
-					<lit:goto>home</lit:goto>
+					<lit:name>Languages</lit:name>
+					<lit:goto>languages</lit:goto>
 				</lit:button>
 			</lit:buttons>
 		</lit:slide>
 		<lit:slide id="topic 2">
 			<lit:data>
-				Topic 2:
+				Button Colors:
+				&lt;br&gt;
+				&lt;br&gt;
+				You can set a button's color by using CSS, which is one of the primary 3 languages used in web development CSS is meant to style webpages.
+				&lt;br&gt;
+				&lt;br&gt;
+				&lt;img onload="document.getElementById('mainDiv').style.height = '500px';" src="img/blank.jpg"&gt;&lt;/img&gt;
 			</lit:data>
 			<lit:color>#ff0000</lit:color>
 			<lit:buttons>
 				<lit:button>
-					<lit:name>setting a button color</lit:name>
-					<lit:goto>settingButtonColors</lit:goto>
-				</lit:button>
-				<lit:button>
 					<lit:name>Home</lit:name>
 					<lit:goto>home</lit:goto>
 				</lit:button>
+				<lit:button>
+					<lit:name>Button Actions</lit:name>
+					<lit:goto>topic 1</lit:goto>
+				</lit:button>
+				<lit:button>
+					<lit:name>Languages</lit:name>
+					<lit:goto>languages</lit:goto>
+				</lit:button>
 			</lit:buttons>
 		</lit:slide>
-		<lit:slide id="settingButtonColors">
+		<lit:slide id="languages">
 			<lit:data>
-				Setting Button Colors:
+				Languages:
+				&lt;br&gt;
+				&lt;br&gt;
+				There are three primary Languages in Web Development. They are:
+				&lt;ul&gt;
+					&lt;li&gt;HTML - Structure&lt;/li&gt;
+					&lt;li&gt;Javascript - Scripting&lt;/li&gt;
+					&lt;li&gt;CSS - Styling&lt;/li&gt;
+				&lt;/ul&gt;
+				These are not the only languages though. XML and JSON can also be used, and they're purpose is to store data instead of putting the data within the Script(s).
+				&lt;img onload="document.getElementById('mainDiv').style.height = '700px';" src="img/blank.jpg"&gt;&lt;/img&gt;
 			</lit:data>
-			<lit:color>#ff00ff</lit:color>
+			<lit:color>#317d84</lit:color>
 			<lit:buttons>
 				<lit:button>
 					<lit:name>Home</lit:name>
 					<lit:goto>home</lit:goto>
 				</lit:button>
 				<lit:button>
-					<lit:name>Back to button Actions</lit:name>
-					<lit:goto>buttonActions</lit:goto></lit:button>
+					<lit:name>Button Actions</lit:name>
+					<lit:goto>topic 1</lit:goto>
+				</lit:button>
 				<lit:button>
-					<lit:name>Back to Topic 2</lit:name>
+					<lit:name>Button Colors</lit:name>
 					<lit:goto>topic 2</lit:goto>
 				</lit:button>
 			</lit:buttons>

@@ -74,6 +74,7 @@ function UpdateSlideData()
 			//console.log(button);
 			button.style.backgroundColor = color;
 			button.style.color = tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
+			button.style.borderRight = "1px Solid " + tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
 		}
 	}
 	else
@@ -84,9 +85,10 @@ function UpdateSlideData()
 			//console.log(button);
 			button.style.backgroundColor = color;
 			button.style.color = tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
+			button.style.borderRight = "1px Solid " + tinycolor.mostReadable(tinycolor(color), ["#000","#fff"]).toString();
 		}
 	}
-	document.getElementById("slideNumber").innerHTML = "Slide \"" + slidename + "\"";
+	//document.getElementById("slideNumber").innerHTML = "Slide \"" + slidename + "\"";
 }
 
 function addTextToList(disp, goto, buttons)

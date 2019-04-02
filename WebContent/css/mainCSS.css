@@ -1,18 +1,5 @@
 @charset "ISO-8859-1";
 
-#slidelist {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-#slidelist > li {
-	display: inline;
-	width: 100px;
-  	background-color: yellow;
-  	margin: 0 10px 0 0;
-}
-
 #slideNumber {
 	font-size: 300%;
 	width: 30%;
