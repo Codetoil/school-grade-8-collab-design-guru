@@ -30,5 +30,13 @@
 		<script src="js/tinycolor.js"></script><!-- Tinycolor Library! -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script><!-- JQuery Library! -->
 		<script src="js/slidething.js"></script><!-- Code of the Project! -->
+		<!-- <script src="serviceworker.js"></script><!-- Service Worker! -->
+		<script>
+			if('serviceWorker' in navigator) {
+			  navigator.serviceWorker
+			           .register('sw.js')
+			           .then(function() { console.log("Service Worker Registered!"); });
+			}
+		</script>
 	</body>
 </html>
